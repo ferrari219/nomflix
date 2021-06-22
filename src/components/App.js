@@ -1,12 +1,12 @@
 import React from 'react';
-import GlobalStyles from 'components/styles/globalStyle';
-import Router from 'components/Router';
+import Router from 'Components/Router';
+import Globalstyle from 'Components/styles/Globalstyle';
 
 const App = () => {
 	return (
 		<section>
 			<Router />
-			<GlobalStyles />
+			<Globalstyle />
 		</section>
 	);
 };
