@@ -28,15 +28,15 @@ const Li = styled.li`
 `;
 
 const HeaderComp = withRouter((props) => {
-	console.log(props);
+	// console.log(props);
 	return (
 		<Header>
 			<ul>
 				<Li current={props.location.pathname === '/'}>
-					<Link to="/">Movie</Link>
+					<Link to="/">M</Link>
 				</Li>
 				<Li current={props.location.pathname === '/tv'}>
-					<Link to="/tv">TV</Link>
+					<Link to="/tv">T</Link>
 				</Li>
 				<Li current={props.location.pathname === '/search'}>
 					<Link to="/search">Search</Link>
