@@ -2,35 +2,36 @@ import React, { Component } from 'react';
 import TVPresenter from './TVPresenter';
 
 class TVContainer extends Component {
-  state = {
-    topRated: null,
-    popular: null,
-    airingToday: null,
-    error: null,
-    loading: true,
-  };
+	state = {
+		topRated: null,
+		popular: null,
+		airingToday: null,
+		error: null,
+		loading: true,
+	};
 
-  componentDidMount() {
-    try {
-    } catch {
-    } finally {
-      this.setState({
-        loading: false,
-      });
-    }
-  }
+	componentDidMount() {
+		try {
+		} catch {
+		} finally {
+			this.setState({
+				loading: false,
+			});
+		}
+	}
 
-  render() {
-    return (
-      <TVPresenter
-        topRated={topRated}
-        popular={popular}
-        airingToday={airingToday}
-        error={error}
-        loading={loading}
-      />
-    );
-  }
+	render() {
+		const { topRated, popular, airingToday, error, loading } = this.state;
+		return (
+			<TVPresenter
+				topRated={topRated}
+				popular={popular}
+				airingToday={airingToday}
+				error={error}
+				loading={loading}
+			/>
+		);
+	}
 }
 
 export default TVContainer;
