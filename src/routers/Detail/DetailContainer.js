@@ -1,14 +1,23 @@
+import { movieApi, tvApi } from 'api';
 import React, { Component } from 'react';
 import DetailPresenter from './DetailPresenter';
-// console.log();
 class DetailContainer extends Component {
-	state = {
-		result: null,
-		error: null,
-		loading: true,
-	};
+	constructor(props) {
+		super(props);
+		console.log('Detail construc:',props);
+		// const pathname = props.location.pathname;
+		const { location: { pathname } } = props;
+		console.log(pathname)
+		this.state = {
+			result: null,
+			error: null,
+			loading: true,
+			isMovie: pathname.includes('/movie/')
+		};
+	}
+	
 
-	componentDidMount() {
+	async componentDidMount() {
 		const {
 			match: {
 				params: { id },
@@ -16,9 +25,26 @@ class DetailContainer extends Component {
 			history: { push },
 		} = this.props;
 		console.log(id);
+		const { isMovie } = this.state;
 		const parseId = parseInt(id);
 		if (isNaN(parseId)) {
 			return push('/');
+		}
+
+		let result = null;
+		try {
+			if (isMovie) {
+				const request = await movieApi.movieDetail(parseId);
+				result = request.data;
+			}
+			else {
+				const request = await tvApi.showDetail(parseId);
+				result = request.data;
+			}
+		} catch {
+			this.setState({ error: 'cant find anything' });
+		} finally {
+			this.setState({ loading: false }, result);
 		}
 	}
 
