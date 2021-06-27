@@ -34,8 +34,8 @@ class DetailContainer extends Component {
 		let result = null;
 		try {
 			if (isMovie) {
-				const request = await movieApi.movieDetail(parseId);
-				result = request.data;
+				({ data: result } = await movieApi.movieDetail(parseId));
+				// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 			}
 			else {
 				const request = await tvApi.showDetail(parseId);
@@ -51,6 +51,7 @@ class DetailContainer extends Component {
 	render() {
 		console.log(this.props);
 		const { result, error, loading } = this.state;
+		console.log('result: ', result);
 		return (
 			<DetailPresenter result={result} error={error} loading={loading} />
 		);
