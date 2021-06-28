@@ -44,6 +44,7 @@ class SearchContainer extends Component {
 		const { movieResults, tvResults, searchTerm, loading, error } =
 			this.state;
 		const { handleSubmit } = this;
+		// test
 		return (
 			<SearchPresenter
 				movieResults={movieResults}
