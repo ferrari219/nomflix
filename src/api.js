@@ -15,9 +15,13 @@ export const movieApi = {
 	nowPlaying: () => Api.get('movie/now_playing'),
 	upcoming: () => Api.get('movie/upcoming'),
 	popular: () => Api.get('movie/popular'),
+	movieDetail: () => {},
+	search: () => {},
 };
 export const tvApi = {
 	topRated: () => Api.get('tv/top_rated'),
 	popular: () => Api.get('tv/popular'),
 	airingToday: () => Api.get('tv/airing_today'),
+	tvDetail: () => {},
+	search: () => {},
 };
