@@ -136,8 +136,8 @@ export default global;
 /* color */
 export const Color = {
 	pColor: '#705aec',
-	gColor1: '#363636',
-	gColor2: '#525252',
+	gColor1: '#666',
+	gColor2: '#999',
 	wColor: '#fff',
 	bColor: '#000',
 };

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Color } from 'components/globalStyle';
 import Sections from 'components/Sections';
 import Loader from 'components/Loader';
+import Message from 'components/Message';
 
 const Div = styled.div`
 	padding: 0 20px;
@@ -34,6 +36,7 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, error, loading }) =>
 					))}
 				</Sections>
 			)}
+			{error && <Message color={Color.gColor2} text={error} />}
 		</Div>
 	);
 
