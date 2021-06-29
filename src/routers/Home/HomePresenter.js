@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Sections from 'components/Sections';
+import Loader from 'components/Loader';
 
 const Div = styled.div`
-	padding: 0 10px;
+	padding: 0 20px;
 `;
 
 const HomePresenter = ({ nowPlaying, upcoming, popular, error, loading }) =>
-	loading ? null : (
+	loading ? (
+		<Loader />
+	) : (
 		<Div>
 			{nowPlaying && nowPlaying.length > 0 && (
 				<Sections title="Now Playing">

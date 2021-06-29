@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Sections from 'components/Sections';
+import Loader from 'components/Loader';
 
 const Div = styled.div`
-	padding: 0 10px;
+	padding: 0 20px;
 `;
 
 const TvPresenter = ({ topRated, popular, airingToday, loading, error }) =>
-	loading ? null : (
+	loading ? (
+		<Loader />
+	) : (
 		<Div>
 			{topRated && topRated.length > 0 && (
 				<Sections title="Top Rated Shows">

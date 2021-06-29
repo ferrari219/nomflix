@@ -12,11 +12,11 @@ const Div = styled.div`
 
 const Loader = () => {
 	return (
-		<div>
+		<Div>
 			<span role="img" aria-label="Loading">
 				⏰
 			</span>
-		</div>
+		</Div>
 	);
 };
 

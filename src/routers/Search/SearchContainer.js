@@ -11,13 +11,22 @@ class SearchContainer extends Component {
 		error: null,
 	};
 
-	handleSubmit = () => {
+	handleSubmit = (e) => {
+		e.preventDefault();
 		const { searchTerm } = this.state;
 		if (searchTerm !== '') {
 			this.searchByTerm();
 		}
 	};
-
+	onChange = (e) => {
+		// const value = e.target.value;
+		const {
+			target: { value },
+		} = e;
+		this.setState({
+			searchTerm: value,
+		});
+	};
 	searchByTerm = async () => {
 		const { searchTerm } = this.state;
 		this.setState({
@@ -26,10 +35,10 @@ class SearchContainer extends Component {
 		try {
 			const {
 				data: { results: movieResults },
-			} = await movieApi.movieResults();
+			} = await movieApi.search(searchTerm);
 			const {
 				data: { results: tvResults },
-			} = await tvApi.tvResults();
+			} = await tvApi.search(searchTerm);
 			this.setState({
 				movieResults,
 				tvResults,
@@ -48,7 +57,7 @@ class SearchContainer extends Component {
 	render() {
 		const { movieResults, tvResults, searchTerm, loading, error } =
 			this.state;
-		const { handleSubmit } = this;
+		const { handleSubmit, onChange } = this;
 		return (
 			<SearchPresenter
 				movieResults={movieResults}
@@ -57,6 +66,7 @@ class SearchContainer extends Component {
 				loading={loading}
 				error={error}
 				handleSubmit={handleSubmit}
+				onChange={onChange}
 			/>
 		);
 	}
