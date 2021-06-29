@@ -16,6 +16,7 @@ const Grid = styled.div`
 	grid-template-columns: repeat(auto-fill, 125px);
 	grid-gap: 25px;
 	margin-top: 25px;
+	background: #333;
 `;
 
 const Sections = ({ title, children }) => {

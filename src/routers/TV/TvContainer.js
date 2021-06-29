@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TvPresenter from './TvPresenter';
 import { tvApi } from 'api';
+import Loader from 'components/Loader';
 
 class TvContainer extends Component {
 	state = {
