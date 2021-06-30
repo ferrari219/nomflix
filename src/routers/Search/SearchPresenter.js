@@ -1,6 +1,12 @@
 import React from 'react';
 
-const SearchPresenter = () => {
+const SearchPresenter = ({
+	movieResult,
+	tvResult,
+	searchTerm,
+	loading,
+	error,
+}) => {
 	return <div>Search</div>;
 };
 

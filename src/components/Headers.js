@@ -27,7 +27,7 @@ const Li = styled.li`
 
 const Headers = withRouter(({ location: { pathname } }) => {
 	// console.log(props.location.pathname);
-	console.log(pathname);
+	// console.log(pathname);
 	return (
 		<Header>
 			<ul>

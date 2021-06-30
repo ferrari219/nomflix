@@ -1,7 +1,7 @@
 import React from 'react';
 
-const HomePresenter = () => {
-	return <div>Home</div>;
+const DetailPresenter = ({ result, error, loading }) => {
+	return <div>Detail</div>;
 };
 
-export default HomePresenter;
+export default DetailPresenter;

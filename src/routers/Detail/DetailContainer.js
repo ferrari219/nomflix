@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-
-class HomeContainer extends Component {
+import DetailPresenter from './DetailPresenter';
+class DetailContainer extends Component {
+	state = {
+		result: null,
+		error: null,
+		loading: true,
+	};
 	render() {
-		return <div>HomeContainer</div>;
+		const { result, error, loading } = this.state;
+		return (
+			<DetailPresenter result={result} error={error} loading={loading} />
+		);
 	}
 }
 
-export default HomeContainer;
+export default DetailContainer;

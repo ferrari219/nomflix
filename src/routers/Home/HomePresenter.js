@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomePresenter = () => {
+const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) => {
 	return <div>Home</div>;
 };
 
