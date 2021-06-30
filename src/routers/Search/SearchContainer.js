@@ -20,9 +20,9 @@ class SearchContainer extends Component {
 		});
 	};
 	handleSubmit = (e) => {
+		e.preventDefault();
 		const { searchTerm } = this.state;
 		const { searchByTerm } = this;
-		e.preventDefault();
 		// console.log(searchTerm);
 		// 입력이 끝났다면 함수 실행!
 		if (searchTerm !== '') searchByTerm();
@@ -31,6 +31,8 @@ class SearchContainer extends Component {
 		const { searchTerm } = this.state;
 		this.setState({ loading: true });
 		try {
+			console.log(await movieApi.search('code'));
+			console.log(await tvApi.search('code'));
 			const movieResult = await movieApi.search(searchTerm);
 			const tvResult = await tvApi.search(searchTerm);
 			this.setState({
