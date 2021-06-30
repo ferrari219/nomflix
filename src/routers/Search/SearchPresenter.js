@@ -6,8 +6,16 @@ const SearchPresenter = ({
 	searchTerm,
 	loading,
 	error,
-}) => {
-	return <div>Search</div>;
-};
+	handleChange,
+	handleSubmit,
+}) =>
+	loading ? null : (
+		<div>
+			<form onSubmit={handleSubmit}>
+				<input type="text" value={searchTerm} onChange={handleChange} />
+			</form>
+		</div>
+	);
+// console.log(movieResult, tvResult);
 
 export default SearchPresenter;

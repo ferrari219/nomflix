@@ -22,6 +22,12 @@ export const movieApi = {
 				append_to_response: 'videos',
 			},
 		}),
+	search: (term) =>
+		Api.get('search/movie', {
+			params: {
+				query: encodeURIComponent(term),
+			},
+		}),
 };
 export const tvApi = {
 	topRated: () => Api.get('tv/top_rated'),
@@ -31,6 +37,12 @@ export const tvApi = {
 		Api.get(`show/${id}`, {
 			params: {
 				append_to_response: 'videos',
+			},
+		}),
+	search: (term) =>
+		Api.get('search/tv', {
+			params: {
+				query: encodeURIComponent(term),
 			},
 		}),
 };

@@ -38,7 +38,9 @@ class DetailContainer extends Component {
 			if (isMovie)
 				({ data: result } = await movieApi.movieDetail(parseId));
 			else ({ data: result } = await tvApi.showDetail(parseId));
-
+			this.setState({
+				result,
+			});
 			// console.log(result);
 		} catch {
 			this.setState({
@@ -53,6 +55,7 @@ class DetailContainer extends Component {
 
 	render() {
 		const { result, error, loading } = this.state;
+		console.log(result);
 		return (
 			<DetailPresenter result={result} error={error} loading={loading} />
 		);
