@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchPresenter from './SearchPresenter';
-import { movieApi, tvApi } from 'api';
-class SearchContainer extends Component {
+import { moviesApi, tvApi } from '../../api';
+
+export default class extends React.Component {
 	state = {
-		movieResult: null,
-		tvResult: null,
+		movieResults: null,
+		tvResults: null,
 		searchTerm: '',
 		loading: false,
 		error: null,
 	};
 
-	handleChange = (e) => {
-		// const value = e.target.value;
+	updateTerm = (e) => {
 		const {
 			target: { value },
 		} = e;
@@ -19,13 +19,12 @@ class SearchContainer extends Component {
 			searchTerm: value,
 		});
 	};
+
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const { searchTerm } = this.state;
-		const { searchByTerm } = this;
-		// console.log(searchTerm);
 		if (searchTerm !== '') {
-			searchByTerm();
+			this.searchByTerm();
 		}
 	};
 	searchByTerm = async () => {
@@ -33,15 +32,14 @@ class SearchContainer extends Component {
 		this.setState({ loading: true });
 		try {
 			const {
-				data: { results: movieResult },
-			} = await movieApi.search(searchTerm);
+				data: { results: movieResults },
+			} = await moviesApi.search(searchTerm);
 			const {
-				data: { results: tvResult },
+				data: { results: tvResults },
 			} = await tvApi.search(searchTerm);
-			// console.log(movieResult);
 			this.setState({
-				movieResult,
-				tvResult,
+				movieResults,
+				tvResults,
 			});
 		} catch {
 			this.setState({ error: "Can't find results." });
@@ -51,22 +49,18 @@ class SearchContainer extends Component {
 	};
 
 	render() {
-		const { movieResult, tvResult, searchTerm, loading, error } =
+		const { movieResults, tvResults, searchTerm, loading, error } =
 			this.state;
-		const { handleSubmit, handleChange } = this;
-		// console.log(error);
 		return (
 			<SearchPresenter
-				movieResult={movieResult}
-				tvResult={tvResult}
+				movieResults={movieResults}
+				tvResults={tvResults}
 				searchTerm={searchTerm}
 				loading={loading}
 				error={error}
-				handleChange={handleChange}
-				handleSubmit={handleSubmit}
+				updateTerm={this.updateTerm}
+				handleSubmit={this.handleSubmit}
 			/>
 		);
 	}
 }
-
-export default SearchContainer;

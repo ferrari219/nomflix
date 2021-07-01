@@ -26,9 +26,9 @@ const SearchPresenter = ({
 	tvResults,
 	loading,
 	searchTerm,
-	handleSubmit,
 	error,
 	updateTerm,
+	handleSubmit,
 }) => (
 	<Container>
 		<Form onSubmit={handleSubmit}>

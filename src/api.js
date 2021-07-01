@@ -34,7 +34,7 @@ export const tvApi = {
 	popular: () => Api.get('tv/popular'),
 	airingToday: () => Api.get('tv/airing_today'),
 	showDetail: (id) =>
-		Api.get(`show/${id}`, {
+		Api.get(`tv/${id}`, {
 			params: {
 				append_to_response: 'videos',
 			},
