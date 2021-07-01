@@ -11,10 +11,10 @@ class SearchContainer extends Component {
 	};
 
 	handleChange = (e) => {
+		// const value = e.target.value;
 		const {
 			target: { value },
 		} = e;
-		// console.log(value);
 		this.setState({
 			searchTerm: value,
 		});
@@ -24,17 +24,21 @@ class SearchContainer extends Component {
 		const { searchTerm } = this.state;
 		const { searchByTerm } = this;
 		// console.log(searchTerm);
-		// 입력이 끝났다면 함수 실행!
-		if (searchTerm !== '') searchByTerm();
+		if (searchTerm !== '') {
+			searchByTerm();
+		}
 	};
 	searchByTerm = async () => {
 		const { searchTerm } = this.state;
 		this.setState({ loading: true });
 		try {
-			console.log(await movieApi.search('code'));
-			console.log(await tvApi.search('code'));
-			const movieResult = await movieApi.search(searchTerm);
-			const tvResult = await tvApi.search(searchTerm);
+			const {
+				data: { results: movieResult },
+			} = await movieApi.search(searchTerm);
+			const {
+				data: { results: tvResult },
+			} = await tvApi.search(searchTerm);
+			// console.log(movieResult);
 			this.setState({
 				movieResult,
 				tvResult,

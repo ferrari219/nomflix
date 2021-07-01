@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from 'components/Loader';
 
 const SearchPresenter = ({
 	movieResult,
@@ -8,15 +9,16 @@ const SearchPresenter = ({
 	error,
 	handleChange,
 	handleSubmit,
-}) => {
-	// console.log(movieResult);
-	return (
+}) =>
+	loading ? (
+		<Loader />
+	) : (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<input type="text" onChange={handleChange} value={searchTerm} />
+				<input type="text" value={searchTerm} onChange={handleChange} />
 			</form>
 		</div>
 	);
-};
+// console.log(movieResult, tvResult);
 
 export default SearchPresenter;
