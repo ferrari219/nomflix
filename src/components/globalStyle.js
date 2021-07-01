@@ -76,16 +76,18 @@ export default global;
 /* color */
 export const Color = {
 	pColor: '#705aec',
-	gColor1: '#363636',
-	gColor2: '#525252',
-	wColor: '#fff',
-	bColor: '#000',
+	gColor0: '#000',
+	gColor3: '#333',
+	gColor6: '#666',
+	gColor9: '#999',
+	gColorC: '#ccc',
+	gColorF: '#fff',
 };
 
 /* Heading */
 export const Heading1 = css`
 	margin: 2rem 0;
-	color: #333;
+	color: ${Color.gColor9};
 	line-height: 1.1;
 	font-size: 6rem;
 	font-weight: 600;
@@ -102,7 +104,7 @@ export const Heading2 = css`
 	margin: 0 0 1.5rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid #ccc;
-	color: #333;
+	color: ${Color.gColor9};
 	line-height: 1.1;
 	font-size: 4rem;
 	font-weight: 600;
@@ -116,9 +118,9 @@ export const Heading2 = css`
 `;
 export const Heading3 = css`
 	margin: 0 0 1.5rem;
-	color: #333;
+	color: ${Color.gColorC};
 	line-height: 1.1;
-	font-size: 3rem;
+	font-size: 2rem;
 	font-weight: 600;
 	&--border {
 		border-top: 1px solid #333;
@@ -130,7 +132,7 @@ export const Heading3 = css`
 `;
 export const Heading4 = css`
 	margin: 0 0 1rem;
-	color: #333;
+	color: ${Color.gColor9};
 	line-height: 1.1;
 	font-size: 1.3rem;
 	font-weight: 600;

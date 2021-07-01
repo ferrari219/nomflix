@@ -12,9 +12,15 @@ class HomeContainer extends Component {
 
 	async componentDidMount() {
 		try {
-			const nowPlaying = await movieApi.nowPlaying();
-			const upcoming = await movieApi.upcoming();
-			const popular = await movieApi.popular();
+			const {
+				data: { results: nowPlaying },
+			} = await movieApi.nowPlaying();
+			const {
+				data: { results: upcoming },
+			} = await movieApi.upcoming();
+			const {
+				data: { results: popular },
+			} = await movieApi.popular();
 			// console.log(nowPlaying);
 			this.setState({
 				nowPlaying,

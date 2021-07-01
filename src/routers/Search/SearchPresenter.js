@@ -17,8 +17,9 @@ const SearchPresenter = ({
 			<form onSubmit={handleSubmit}>
 				<input type="text" value={searchTerm} onChange={handleChange} />
 			</form>
+			{JSON.stringify(movieResult)}
+			{JSON.stringify(tvResult)}
 		</div>
 	);
-// console.log(movieResult, tvResult);
 
 export default SearchPresenter;
