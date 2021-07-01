@@ -14,8 +14,8 @@ const Div = styled.div`
 const SearchPresenter = ({
 	movieResult,
 	tvResult,
-	searchTerm,
 	loading,
+	searchTerm,
 	error,
 	handleChange,
 	handleSubmit,
@@ -37,6 +37,8 @@ const SearchPresenter = ({
 				<Sections title="movieResult">
 					{movieResult.map((item) => (
 						<Poster
+							key={item.id}
+							id={item.id}
 							imgUrl={item.poster_path}
 							title={item.original_title}
 							year={item.release_date.substring(0, 4)}
