@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Loader from 'components/Loader';
 import Sections from 'components/Sections';
 import Poster from 'components/Poster';
+import Message from 'components/Message';
 
 const Div = styled.div`
 	input {
@@ -24,7 +25,12 @@ const SearchPresenter = ({
 	) : (
 		<Div>
 			<form onSubmit={handleSubmit}>
-				<input type="text" value={searchTerm} onChange={handleChange} />
+				<input
+					type="text"
+					value={searchTerm}
+					onChange={handleChange}
+					placeholder="Search Here"
+				/>
 			</form>
 
 			{movieResult && movieResult.length > 0 && (
@@ -50,8 +56,9 @@ const SearchPresenter = ({
 					))}
 				</Sections>
 			)}
-			{JSON.stringify(movieResult)}
-			{JSON.stringify(tvResult)}
+			{error && <Message color="#e74c3c" text={error} />}
+			{movieResult && JSON.stringify(movieResult)}
+			{tvResult && JSON.stringify(tvResult)}
 		</Div>
 	);
 
