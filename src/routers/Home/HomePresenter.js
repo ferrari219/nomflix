@@ -11,18 +11,41 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) =>
 			{nowPlaying && nowPlaying.length > 0 && (
 				<Sections title="nowPlaying">
 					{nowPlaying.map((item) => (
-						<Poster imgUrl={item.poster_path} />
+						<Poster
+							key={item.id}
+							id={item.id}
+							imgUrl={item.poster_path}
+							title={item.original_title}
+							year={item.release_date.substring(0, 4)}
+							isMovie={true}
+						/>
 					))}
 				</Sections>
 			)}
 			{upcoming && upcoming.length > 0 && (
 				<Sections title="upcoming">
-					{upcoming.map((item) => item.original_title)}
+					{upcoming.map((item) => (
+						<Poster
+							key={item.id}
+							id={item.id}
+							imgUrl={item.poster_path}
+							title={item.original_title}
+							year={item.release_date.substring(0, 4)}
+							isMovie={true}
+						/>
+					))}
 				</Sections>
 			)}
 			{popular && popular.length > 0 && (
 				<Sections title="popular">
-					{popular.map((item) => item.original_title)}
+					{popular.map((item) => (
+						<Poster
+							imgUrl={item.poster_path}
+							title={item.original_title}
+							year={String(item.release_date).substring(0, 4)}
+							isMovie={true}
+						/>
+					))}
 				</Sections>
 			)}
 			<div>{JSON.stringify(nowPlaying)}</div>

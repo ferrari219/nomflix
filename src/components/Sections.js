@@ -5,12 +5,13 @@ import { Heading3 } from 'components/globalStyle';
 //styling
 const Section = styled.section`
 	:not(:last-child) {
+		margin-top: 2.5rem;
 		margin-bottom: 5.5rem;
 	}
 	h3 {
 		${Heading3}
 	}
-	div {
+	> div {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, 12.5rem);
 		grid-gap: 2.5rem;

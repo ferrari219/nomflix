@@ -13,9 +13,15 @@ class TVContainer extends Component {
 
 	async componentDidMount() {
 		try {
-			const topRated = await tvApi.topRated();
-			const popular = await tvApi.popular();
-			const airingToday = await tvApi.airingToday();
+			const {
+				data: { results: topRated },
+			} = await tvApi.topRated();
+			const {
+				data: { results: popular },
+			} = await tvApi.popular();
+			const {
+				data: { results: airingToday },
+			} = await tvApi.airingToday();
 			this.setState({
 				topRated,
 				popular,
