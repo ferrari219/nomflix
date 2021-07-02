@@ -2,11 +2,15 @@ import React from 'react';
 import Loader from 'components/Loader';
 import Sections from 'components/Sections';
 import Poster from 'components/Poster';
+import Helmet from 'react-helmet';
 
-const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
-	loading ? (
-		<Loader />
-	) : (
+const TVPresenter = ({ topRated, popular, airingToday, loading, error }) => (
+	<>
+		<Helmet>
+			<title>TV Shows | Nomflix</title>
+		</Helmet>
+		loading ? (
+		<Loader />) : (
 		<>
 			{topRated && topRated.length > 0 && (
 				<Sections title="topRated">
@@ -49,7 +53,9 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
 			)}
 			<div>{JSON.stringify(topRated)}</div>
 		</>
-	);
+		);
+	</>
+);
 // console.log('TVPresenter topRated:', topRated);
 
 export default TVPresenter;
